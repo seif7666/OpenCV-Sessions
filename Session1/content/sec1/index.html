@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section1</title>
+</head>
+<body>
+    <div id="title_div">
+        <h1>How image is represented</h1>
+    </div>
+    <span id="image_load">
+        <h2>Loading an image</h2>
+        <span>  To load an image, the function cv2.load is used. <strong> The second argument has the value zero which indicates that we want to read the image in gray scale format. </strong></span>
+    </span>
+    <span>
+        <h2>Displaying an image</h2>
+        <span>You can see that we can display the image using OpenCv function <strong>imshow</strong> or using Matplotlib.<br>
+            Try removing the cmap arg from matplotlib and run the cell again.</span>
+    </span>
+    <span>
+        <h2>Recognizing the image features</h2>
+        <span>From running the following cells we can see that:<br>
+            <ol>
+                <li>Image is represented as a numpy array.</li>
+                <li>Image is represented as 2D matrix</li>
+                <li>The datatype of the matrix is uint8 which represents integer values from <strong>0 to 255</strong></li>
+            </ol>
+        </span>
+    </span>
+    <span>
+        <h2>But what does the numbers in the matrix mean?</h2>
+        <ol>
+            <li>The picture is represented as X*Y pixels.</li>
+            <li>Each pixel is represented by a number.</li>
+            <li>This number represents the color of the pixel.</li>
+        </ol>
+        <span>We will discuss the meaning of this in the following example</span>
+        <p>By creating a 1D array representing numbers from 0 to 255, then converting it to a square matrix as shown in the notebook.<br>By displaying the image, we can see how the image gradually changes from black(0) to white(255).</p>
+    </span>
+    <span>
+        <h2>Binary Image</h2>
+        <span>A binary image is an image that only carries 2 values, either 255 for white or 0 for black, it can be represented as a boolean matrix</span>
+    </span>
+</body>
+</html>
