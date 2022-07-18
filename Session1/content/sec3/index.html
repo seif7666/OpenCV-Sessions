@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 3</title>
+</head>
+<body>
+    <div id="title_div">
+        <h1>Multiple Images Relations</h1>
+        <span>In previous section, we did operations on a single image. In this section we will show how we can produce a relation between 2 images</span>
+    </div>
+    <div>
+        <h2>Mathematical Operations</h2>
+        <span>In order to perform any operation, you must take care to make the sizes of the images identical or an error may be produced. To avoid such problem use <strong>cv2.resize</strong>,since this resizes the image preserving the aspect ratio.
+        <br><br>Notice also that the  are <em>reversed</em> in OpenCV. Thus, as we can see the shape of the resized image is reversed.<br><br>
+        <span class="problem_span">But how to solve this problem?</span> 
+        </span>
+        <p>This seems at this moment to be unhelpful at all, but as we go on we will discover cases where this approach produces interesting results.</p>
+    </div>
+    <div>
+        <h2>Image concatenations</h2>
+        <h3>Task</h3>
+        <span>Pick any 4 images of your own choice, merge them into 1 image containing the 4 images as 2X2 figure.</span>
+    </div>
+    <div>
+        <h2>Feature Matching</h2>
+        <h3>Task</h3>
+        <span>Implement feature matching algorithms on any 2 images of your choice, you can find the algorithms in this <a href="https://docs.opencv.org/4.x/dc/dc3/tutorial_py_matcher.html" target="_blank">link</a>
+        <br>Answer the following questions:<br>
+        <ol>
+            <li>Which algorithm gets better results?</li>
+            <li>What is the time taken by the algorithms></li>
+            <li>Try changing the distance function in first algorithm and the number of Ks.</li>
+        </ol>
+    </span>
+    </div>
+</body>
+</html>

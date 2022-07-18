@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 4</title>
+</head>
+<body>
+    <div>
+        <h1>Image Thresholding</h1>
+        <span>Thresholding is important when we want to focus on specific properties in the image and neglect the rest based on the color. You can find more about thresholding from this <a href="https://docs.opencv.org/4.x/d7/d4d/tutorial_py_thresholding.html" target="_blank">link</a>.</span>
+    </div>
+    <div>
+        <h2>Simple Thresholding</h2>
+        <span>As shown in the notebook, 2 images were produced where colors are reversed, this is due to using <strong>CV2.THRESH_BINARY and CV2.THRESH_BINARY_INV</strong> where INV reverses the colors.<br>
+        If we don't want a binary image, then we could the <strong>TO_ZERO</strong> threshold where false pixels are only replaced by 0.<br><br>
+        <span style="font-family:sans-serif; font-style: italic; font-size: large; color: crimson;">Task: Implement the TO_ZERO threshold using only Numpy.</span><br><br>
+        </span>
+    </div>
+    <div>
+        <h2>Adaptive Thresholding</h2>
+        <span>Due to different lighting conditions, a fixed value for the threshold is not a good case. Try switching between ADAPTIVE_THRESH_GAUSSIAN_C and ADAPTIVE_THRESH_MEAN_C, also try changing the kernel size and the constant.</span>
+    </div>
+    <div>
+        <h2>Otsu Thresholding</h2>
+        <span>We don't always know the best threshold for our problem. We need to figure this threshold during runtime in most times actually. The Otsu threshold helps us in this situation since it produces a threshold that best estimates the required one.</span>
+    </div>
+</body>
+</html>
