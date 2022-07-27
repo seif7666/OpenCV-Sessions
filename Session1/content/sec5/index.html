@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtering</title>
+</head>
+
+<body>
+    <h1>Image Filtering</h1>
+    <div>
+        <h3>Types of Filters</h3>
+        <p>You can apply any type of filter you want on your image, for an example you can do the following:
+        </p>
+        <ul>
+            <li>Apply blurring to the image. (For smoothing your image) You have multiple types of blurring so check the
+                <a href="https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html" target="_blank">docs</a> for
+                more information.
+            </li>
+            <li>Apply sharpening to the image.</li>
+            <li>Apply an edge detection filter to the image.</li>
+        </ul>
+        <p style="color: #ef2434;"><span
+                style="color: #333333;;font-size: 18pt; font-style: italic; font-family: 'Courier';">Task: </span> Which
+            from those is low-pass filter and which is high-pass filter, what does this mean?</p>
+    </div>
+    <div>
+        <h3>But how is filtration done on an image?</h3>
+        <p>The answer is simple, by applying <span style="font-style: italic; font-weight: bolder;">Convolution</span>
+            operation on the image.</p>
+        <div>
+            <h4>Convolution</h4>
+            <p>The convolution operation is the integration of the product of 2 functions and is obtained by the
+                following relation:</p>
+            <div>
+                <img src="https://miro.medium.com/max/1400/1*xkPtiU47OWDg0NVmIphlJw@2x.png" width="70%"
+                    alt="Convolution equation">
+                <caption>Convolution Equation</caption>
+            </div>
+            <div>
+                <p>Convolution operation is done on images by defining a kernel, which is a matrix of known size, and applying the following relation.</p>
+                <div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATQAAACkCAMAAAAuTiJaAAAB+FBMVEX////AwMD/AAD4+vwAAAC8yODg6PKYr9Po7fXV3u2/zeSLqNCvwNzN1+mVrtL3+fz/jIrI1Oikt9j/wL7Z4e74AADp5+3/+/v/iIb/RUX/2Nfu8viywt2LpM3/OTT/7eyastD/oJ7VcIL///r2//8AAAynutn/9PQZEjLZbX7/q6n/6Oby8vLk5OT/e3f//vJOMiT/3t2Bnsr/ZWH/zsz/8+n+0dcALVcAADXc3NygoKBoaGiEhITxLzlcXFz/gn3v5dkAABz/trRJRkeNlp66yNXc0cGDlq39p7b/49T9k4T7AB/8c3r8cYX+q538Y2v9s8L8dpX8jqj8TF38XXD+5/W9saRyY2G4ubpZa4KNfHRSVmdmf5JgTDIcJDEAI1ArHBk2UWsAMEsqKCdASFKAbV2vppplbXRAOzSAd3Guu8mzn4oACiqPfWOUqr8QFijSw64jAABHKwkhQGJQaIVtfpYtEwW2jKU0NTUWAAClknoeFACGcFiSgV9AKhSimLg1Q1NVQjRjibq9VXLeSlegY4e2sq2SkpJpQxAUJzVCIwCHjbhVTEHtnKJhSS6/qr3itLswAAAsIgzMiZsAFxtoVS0+Oip3YkpUOBwlN0RYT2RENDxWSD88TFwwHCD7MUj8XID9cWH+yeH8Xkn8Ml39iHH8AC78PS46a65nAAAXsElEQVR4nO2di0MaV77HD3GiJkZFwaISNewkYSugRRh2eQSnoCMoCAJSozbbVuMDE0N3m5bY3m2a7ertXtt93N087jZrNKn9N++ZM2fwHEAeCkgj390qP2Y8zHw458zv9zuPAFBXXXXVVVddddVVV1111VUDio9/cB0o5ppzHOJuy69YR8PR2/P2hSpcVy2Lez++CD5ccNxpzz7G/0767dYC1xE09qPtj6t0cbUq/mF8XPhEfDW/tKDlV3eXr99Vg3n1ytKymvsNuwD4sTjjda8CYS2VAOvrSwkhsdJ41lddA9pYhD+SH4ON2/y99vubGxPDD4QHIPkJhHYPCAtgrVHzKWDUHHP99wn+wVlfbY0IQdvYBPwf+M/AxgT/Sfxh8iEYvgeh/RbwEFoz+7nmHgDPL72n5Zaun/XlAr2yFHWrrjeYu9Gr6+3tDeZRXUM7IcqAKvYieKZVsx0Xa5ogQgMfMpdgi03+gfsdYNo3PgbvoZrWCGvaRzUBTXWhJN261vmF9KoT6gvpV1pP2iiz73KxV5FcS42x6ynYpz0E8U0Qfwl7uBTs0z4DW0uuMbByR70LkinYp32g5dyVxFGcVBd6geZI4NoFHWGD1lbqaH8P/BP8WtSvLgyQhV3VUmU3X6zabVRXIjRSIjRCEBopBI1QBrQrtLPVWIcmqg4NqSag2U1FnlgjkqApHPJlNymt8Kdd9h4laEYFNqU+TeGQ+64WsWuzO8axiaEp8OGioc0pCp9TS0LQhNUVBt9ok/hAv8ts4sMImvDoHjYRtI3VddluEY/eU3yOqUnQ4gw2i4bmsJ/mFqov3DzZR7hlNYnOlX2Lgmbnf41N3DyHGewridCgJ/+MhMb9+n6p0FzGk9/AWUiC9sGXn2EbQQM0NMgBmxjahhwwi9DAM+YP2ETQvrr8X6VCc57o0s9OEjSj6Y8JyUbNswA0QW7L4GuVBiQfm77Bp4vQeEbxoUuKBd5uaPZm8AOGdu3nQVAAGs+kkwzvwqfn/QmwgeupCI1zOL5ZlaAWC83oOuVNVFvSg2CJeYht5HJ8k1palEwELf7P1B2py0PQtlJLDO65RZeD+3FpGXeI+Om5VWLz/KU9PGvCT6tw6xwYHIIaVZWvxBqA1lBRaPruIXSHepVlsFxlitAajoSgESaERhy93t9zvYE8W4RGmBAaebRIaBX10swWQ/q1yqIpT6GqC1+3EWp6cuFXpDky0kQevnWrjdKfLpCHm560UEdHiksNVTLXY/72EqHWqPpSKco12CNKdcFM2ddQGJXWpUvU0czm2UJ/dSdKDVWyomksLa0dhOzfklZH68hlyuzspM7uaDum2Mw+rYnOixbo01po8yR9mr2SPdrQOzfpN/5MPw5u0snlS/TdgqZjis2CRhdTcWjGSjbOAeX1Tvqdln3K7Mx7t7UKTeGuZNipM2gzoQ1SvdGpoLEO2clvEgdl7TsOsphthwMngxA0o2NHjQ9/7YGd2vYOnRra3sHRRQFoxh2n05H3jNPKArKgGSi/4zTQ9GuMfH/XpgYBx8ztThDFQGg4ckLQ4mMr7+OzxTBKzCuREcHGS8WcZOaHZndXPCE0moYGvx+n+E33sd3kCaeBptH+dxoa9NOSnwH+N1QxSZzWwM2Tv4HPxs7tp7jmIWifNsstLi80U0Zn1txZipq0uUulpDmCZrfb0ffeB4bIM07Xp1HQ4g8B/x1VzHu4ASJo7BqD6yGGJvwWmyI0lkk9xYjzQvNm2OqL1KiptokeUe2jR1RvFjUxYZRonnE0maYPvkfolNBkPxRBuw34T8hiBGzJNY1jsPuGoB1lPSRoADCFsxw7mW1TTXvCDZmdEW1eLQrakARNMQc/7C/oTvr0SvKEU0Ez/j6BZ+WI0Pj3tfNklgP8IGeKEDSFiWdwexSh8UzChBskap5/SQjvS4XlgWbM8s4qCE18UiWl773FSjlqp4HGuZ1uOZ8mBuwr3tV2ohjOKZctQfN68ckImuB2y3+MoPFeL66HeaDtZI0/VQKaSpVuns+lS2wZ1QN+ddjNepETXyY/7ZqOCqMq5adlu7SVgAYssnPL7kiRzv/A1smNsTtgB5nlcm6rEkbJTgkhBI1dkXtPBI3bTclzHuVPit9BuIqEpvo+I4z6Vk+Z5YLWQJmtBQJ22iw6YM8x/ISgxV2yB4igbS2m0/D4k/jVj1B3WiQ0MPpXytR9QR++eVJoX7Q1EXpCWWJqiFBb/y368JMm2uyj//jY1FCOIF1qnsOyB4igPWsVJ14hpb+e90qCNtBlbTyS7vuR5kZSbZco8+JVylRXpnmiMOpIxTVPY4PR1ZD1bi5oP1yioClcY6VCG+rq/tNfL0v64tu/XX5y+SKhyyNXSfNiUxNlXi36QTBFBWcFoL17knT3jtPuYLLaZ86algD3sbcjQrMr7CVC673QNTTQPTpotap0QzqN6NxSKlNqqApjBEbGlcpunwia4GJ2pH4RQUvec8hDrLh5GncerYrUioQ21f39BSvQ9Ko8KinrnQGtXC5HFQZWHEx2RZOg8QqFQroPyeWwz6Wn2ki/NPAE8UOKg6a39P7NQ91PWaGlb0KCljalYsRREiQMLd0jSdDS/ZoEzShfybEuB5MjI1QRPw2o6KdnOaHxX375EtsiNO7p2nfNRDFbN5bwWLI01WpeTgVJ0FaYDmwiaM9SBWcN5coJqTtouzzQdAnaLiM0oxY8wg4ZmnOrTbtHErR0JUDQhLHP5UtGI+xjP1DQTNIMd1DiTEj1yBVSN59Q5pUMc6RYPy3DuS1r8+TkDheNRgmO77REMVvLLlw3cPP8u1zTpO//XzS07X9guzRoV5pJNbZRZvMIbXYW63JUEpo870fy0wTHR2RNM5rieEKaBI39u3zJuaHt4sZcGrQMT7g8zTNUQWjPJtLntaOOfYNKDQGWIcYIYE2jn2k0tPZ0BvM00MrzINArKwctybjlbI8Ijb/jvNFKFLPrph4EvJdZxvk08VY4L5MiU0OPnF/iapsbGgsfndvZ91wRaNa/icUICX6MG0NviND4MdbFSrO7TjVGYDLJeUQ0hGe0y1UJFaNJz76Wnp7wbOx0fD0Ia+XRHyNoGvs7+Oyc0NhdZjHOPMi6aQxN9mYwtLTvk4YmnVAkNOU7CNoYP8ZLTQdBW2WdrJSbOjG0jGkJF0oJo07g3Gq+YaBuqDPfR9A06/Jwg5Qa+sj7GN+WDG2FKSWMsmQOFpereQ4pu4+kfPdCD2m/+243ebSrp3cUvRL/tHdUuXeCZT7sUwgtixlODTmo1ND9CTH8RJJTQ2OlxJ6a0cxxz/JAs3aVpG//V/p9FQq9vHKV0MhN0rralDM1FBdr2mLW27kC9g9LSQ3xLigagkqlbQLUssA+2uzUkmNeDR0d9DrC46CBvncoZZgXL9J2S7P0W61WNzbCs5sb1UdqbGqlzMu5ahrHMN/tMnLQkB9aRmpo25kvNWSEYamCTjkN6bVPOskMX2emmS97CHUctIzpRJmZW7rCFnqmFROwJ9+/xH4zkfV2LmhfJcBXRGrIKD6Q3jsu3Z0LWva0BNo8YWooC1reVl4AWnFZjnYixD+SlBpyM+7mo08Sbqw/oFNDvJNZFitprua5A0VdvdWTBa08fdoZQMstBM1ot9sbiE8yKeTLkVND8ATRDSnqQTCkPxfQiv6kYqDph0BFoQlLciQkQYvfIQN2zfxjfFRqNEs35C4J3Up8icEfhqDdTy3ljQiOUfljz0FrRaFxC7+X7w9B4/7xTxLaiktesYKg2Zt5ckEZf+M6wJ+NoP3rktxjlQbtJvXkVfeRprpxhDabioBmAZWtaUezhhC0r+aektCOlvngRsMz2BahxRd2xjBDCdqiA19KadD6qIGiiyP0uFHmMFJhaCpx1kb1oAmPQX5oz+VEkght47FCTpIgaHbF3WKmWmWq7M1TrGgVhiZfsght5Y6XWSCLyYB2N+3Po5q2CJJ4IyX8IOBqITXkQdODKtmnuR4tYBddehCwX5JjBIKTcREDa1uMy4mvGaWGmJ0viUWyw96dp7jinSU0DapolYTGzinmcPYHuxyya42KMcHDxMCaXTE3h1M26FZMc/JAidQ804vqzhKaUhqZPBd+mn2M+qQVlzyaJH+SURpMLgStF89HrhK0iseexwhBS6ao1FD8sf1RK/VJ/FpR+TSNvHSsQtD6qDVW6pFWyrxyhV6ClXk2bbZ1UHbOLMdxksKojLkc42CLTg1pGorKpw3JmdUC0E441QqMXCbVMXKRspuaKPPiSAd19hPq6OW+q5R5s+gNmsCxqaE4Aa3oCTDK9MRa7ZO2FkJtmWYfabaMjFBmS3WaJ525PUGflremFTvVSneUsYc1jVqg2kebnVpqgWprB3X4+CRkTT0ITNsMOQFm42P7I2LcC4gTYD4fKzQBRkmMcpyHp6fgcq0THiHYccoZXvxJ3LrLJU6gOB6a3kJOej8P0Ir+pGOhDRLLr0FlI4LdlOwfoRH2u0urpHMLVuQ51lJqyJsiY8+41+slNjMBG6llfEfVhTZg7vV0WzL2RKggNH6ck5fqiND0c8a/kHM5VpxU7CnYqdSQ0WR8To6wO4z3TzRr6Gq79kjt2ibS1DaMUGbW2ii9ztKt06kMmaVWsnma4ndw1cLN8/k4WUxGwG5akTcXkr7/9KI8eTOTk0BrpveT7MxvttDPad1Qb+5SKwltffcFuasViL+4ThZDQ2PX1xaImobGdCVJ0NILzKq1U99AZqM8UmUfBPJINoImPJB79Nz5NPAprogI2nB6vyZpKzB5N7VqQTNYBo49VkFocde2nOZHs4aYVQfZp9l3GAfhPa2MpZcSI2hb8jZieBXeYweeUlsdaIZ8W5RUEJrRsSOfLkIzOhwOsk+zO7ZJaCZHesU7gqZId8oI2va2o6jl2GWSPu+2Lm+5n0arwUj29BrqF608bRP8IqCdJjV0JGHZrRhLJoR0YYIbeX6C25u9jw29YU2WKgaNCmHbtKQpzqMhpb2WEf9SR8GVRspWnxDaBNBvJhPP3dodpzq+ngBGcH/c1bCqAc+y0iZWZa4SjlRaaqjouRwZE2Xyz6Npo5fddWauwmuhzOL37qYkfOe2P0wmtsaTL1c+25hohxEKo15ZSrBuJqumWQqUpS0ws/4mZbb00dPyj4XWlNfM2KCp0MBaWfbuFh4CToSmTt6eG99oFWeMxicE8fEuz7tKS5e/cUI10mrOa2bax+5jUXsPAtg8RWjxF/Y156YILb6cGveaHsfdSxkTKPVDuUuouGoPmixjep6ysQHWNg3IWoXWnRVrVkm1C62gBs6qoknQ7Omd36QdlbdlU4Jm2sZDmRI0BbWgkFUo5nC0L0EzVSuMUp6gohlz76JlpH4VlAgt+WBOXlCGwii3gyEjAuHBHA6MpIE11zy5dzd/z7FDQlth5LCqwtBO0qPtrkpbTwkJ2VdGqzJ4aSEhn2PWeU6J0O5vprcDxs2TWoX3bFz+BnDzpPbu5o/+ESdphF2QU5YVhjZ4TDooj4TbgPUqxoYXn6Xsu95V4ypYX/knvPO76x1b43e1H6yXAC3+Yk6eOixB42WPCEF7mnK/INf70nt3895deQqg1DwF+WiFoRXy0XIoCe/SHZ8Yvi1sgmXwzP5/YHd4UZzDs5HgmM3khLytcSGhPm3bcZesaRp5J28MTQ1+kB4IEjTh/YxF0l+R6W4gVKd5mnWFz8kU/6JdeCk8FG4LE+y/G340LXNrw7fFDufH20JqMe56mr2+IadQlqOd/xxXTBEa+3xR7i+l5rnJ4WWxUrqbGTfiTgwN4b5j/CO5tX5D8mN8tLLQTvIYACtut5r9wDnGeaETOAbmnS7gFCtIXL3VPN8I4kWuiBShCan0lkvoQeB1e/FAC4LGp0dOpHya15vCT1f0jzh45ZMlaFteL+7UKgvtBK2TFLt6ij/+pfpphhO0Tkqn2cGzJGjttQPtBM/O8ikzYD+ruRyl6syiAVEZE2We0GbmPJon+U367JGOwh9/Yp2ySzuXOonDce7lKZhJqytLo2X6pwXOlc70OfBLVe1BMyGH3yR6XUZ5vwjTOGBzbazE2pulX8VsDF0+jRY+pbracq8viDHkOPSaxcRTg+g+CxOAHRNfG1H6WfxPI/p0H4gTYQH3b3lr+OpooNYensN3xC0sf1zeHr/rfCkkNryp5nn3hAhtlf/3mnMtITiX2++6XwpudyPgXyq08+Pu7UVFe+GSy6deTzU/rQhxLwG4P74A4gmvsChsbrVuXBQcCxDaMPzBP+Q+4xw/2peFifuuu5tAeLn9CctsxldXblfzGlVl/FegyqOP1NySSYT2H7caQmuMJ9YUJLStxDP7f9yN9xOwO+MX2Dv80sPkBL9QuODySVVzbprgdI/D/ktQLG+/sI/Hm5OtO84xPgH7ND7BJ9gxwblqf7z92OQUF+NtucfntfOmdWeRmeLy6EzD9bzivK7jkk6cd73IJGdlpKtZaDWsgXpAUFdddf3CxfZSvf/RsrFpH23D51Q4TzmG2bJeVm3Lvzc0A4Ae/R+qhwuKv/RgeG8AcDMgKlnoBxcDGvioYNHcAz16yx+Ry7EeHBXy1ssf9Me4qCU8GbLtz04eWAa7IoDtsQQ9U2EweRjuj0aBJQCxTgZiXMwfjdqGonuWQ81oINZ72BMePYS1b4+9pbEMHuyHZn8KxM76fqoi/97PB9PR7leTQf1rCC06DG9bFQE97Cvogog1zeI/1HUB0KWbsgUnA0MRyyyEa5vSTaki3Ct/hAv59j1d4aAnvB8Z7tJ1nYtW6p/xxzxBs9kwPbNve30Q5aIaYA3q+0V4hhgbBfv+PYMNgCmbbSA2GTEPWPQitFtmm1WEFtQY9KouVVfYEzZM+qbMtrO+n6qI8wGlRhmw6QK23pByVge64QNAGbKxsLdih8I6oNMMBuBrayio97FDATO0Z1WzqkDEHB72saEDWERAE9BbbZOBWVVo5qzvp6663mrlXuGTOy7Vo606zmpmcw1pT3a2KF929CDXuf0+wKpAz7kM9Ad0gQO/0mcN+YAnsGcOw0BAGVB1QSLKwKxVF9CbAz0HgBv1mW1c2A8PhWB1VIXCqikVmJ4K73dHgCqQL154G2V4Y9hTBQcO9a9te4Y9a5ANqWbMhjd6oLFNR+D/wlOzrw/A9KsBlY+bUc1Mv4KeHLen77FB/8QfA69tr2391qmzvosqyzADelRhGCZN+mIgap0BoWlYb95ALy46GZm2WcNTYBI2z+moR4QWtkbMMzCUAPu2EBCDq9dgUnXLU2ujMpWWoWtvRuUDr0N7oD96ODDVE+Ombg3AgMpwqwdB+ynadQAGQ1HDVH8EQwM9MMKCoelwl++15ieb5ZxEUEfyz0hduRSFo7Bco0+/lI+Qtgab4kvpPf15exroz0f0U9dZymzT649fsJ6ZH0O+LGvOc2KOY2+fDq1Bf6Q3R0JHzNmygYw3e2DkPjv8KutkNii/ipb38mpS04eBiD/yOmruDs16QmFgCFgGozZrqNvcFYS+7vfTB9M20BsKAqUlApShHsD2RP17ljDoDtlEHyQCAlFrKGTTWQPRWSs87zxA42LDUX9kMKyKTccmfRrQ+8r/xhDTW3tmLWA6wobYfuhJDEDzlj5qfcXBmjYdHn7DRq0xzxvo34LXhkPN/uyePuaJWCMD1p9nQ2d9R1XQcIyF0DwHnqDVPAnrTm9kIMgGR30WEdoBCIGfYcObjLyejQILdHpFaAeweUZVQatN9Gv3zW/AvsXHxjxhf+Qnn8j67ddwkI35ff5DW08ojKHNsMHpWP/sT688B2xgMjwE46do/2wMhPSiOwush71BENP0wDgV7IdeARgQKC3moOrA75sO9J+LmnYqqfRKvdKgC+hGdSrroFk3oNSM6mtuulaNSdOtVw7ozIMqj9Xq6dUZlPpuffd5CwzqKo8052T4t6zy+876Cn6B8od1ltDQHhjt8XGWHp/ozdZVSP7I0OzQweSB2ROd9v1km/KcjyH000mENjk7bTvsjQ3uRfSH52QI/XTy+5R63ez0rCUUnA4OweaZGcLXlVeTQct5G3Aqgwx5N4qsq6666qqrrpNJUVfJ+n+TDnDw/uqurAAAAABJRU5ErkJggg==" width="40%">
+                    <img style="border: #333333 solid 10px;" src="https://miro.medium.com/max/1400/1*D6iRfzDkz-sEzyjYoVZ73w.gif" width="40%">
+                </div>
+            </div>
+            <p>But what exactly does the convolution do?</p>
+            <img src="https://ai.stanford.edu/~syyeung/cvweb/Pictures1/kernel.png" alt="An edge detector kernel."  height="400">
+            <caption>Effect of an edge detector kernel.</caption>
+        </div>
+    </div>
+
+    <p style="border: black solid 5px; padding: 1em;"><span style="font-family: 'Coutier'; font-size: 18pt; font-style: italic;" > Task: </span> Sharpen an image .</p>
+
+
+</body>
+
+</html>
