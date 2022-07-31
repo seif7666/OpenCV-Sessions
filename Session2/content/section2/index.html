@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Extraction</title>
+</head>
+<body>
+    <h1>Color Extraction</h1>
+    <p>Now, if we want to show only certain colors in an image. Then we need to clearly specify the range of the color.
+        <strong>Identifying this is much easier in HSV than RGB.</strong>
+    </p>
+    <p>
+        This process is simple in OpenCV, where you perform the following steps:
+    </p>
+    <ol>
+        <li>State the minimum color value and max color value</li>
+        <li>Read image</li>
+        <li>Change color space to HSV using <strong>cv2.cvtColor</strong></li>
+        <li>Apply minimum and maximum range on image using <strong>cv2.inRange</strong>. Make sure to visualize the output mask.</li>
+        <li>Perform bitwise operation on image using OpenCV bitwise operations.</li>
+    </ol>
+    <div>
+        <h3>Task</h3>
+        <p>Create minimum and maximum bounds trackbars that control which color to be extracted on a running video capture.</p>
+    </div>
+</body>
+</html>

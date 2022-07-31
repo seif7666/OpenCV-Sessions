@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Representation</title>
+    <style>
+        #HSV_img {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Colors Representation</h1>
+    <div>
+        <h2>Color Representation types</h2>
+        <p>Before we start talking about how an image is represented, we should know how a specific color is
+            represented.
+            We have 3 ways to represent colors, which are :
+        </p>
+        <ul>
+            <li>
+                <div>
+                    <h3>RGB representation</h3>
+                    <p> (RGB) refers to (Red, Green, Blue).Color space consists of <strong>3 numbers ranging from 0 to
+                            255</strong> determining the
+                        intensity of each color in the pixel.
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDlcDn33YNYz9UTqDtGOdaVsxLALluc6u3sg&usqp=CAU"
+                            alt="RGB representation">
+                    <ul>
+                        <li>Color with largest intensity is white with intensity (255,255,255)</li>
+                        <li>Color with lowest intensity is black with intensity (0,0,0)</li>
+                        <li>The largest intensity of each color is (255,0,0), (0,255,0), (0,0,255)</li>
+                    </ul>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h3>HSV representation</h3>
+                    <p>(Hue Saturation Value color space. The values ranges from (0:360,0:100,0:100)</p>
+                    <img id="HSV_img"
+                        src="https://www.parthshandilya.com/static/59700085025c8c130329c7bc8cb53eee/77df2/hsv-color-space.png">
+                    <button onclick="showImage()">Click me!</button>
+                </div>
+            </li>
+            <li>
+                <h3>HSL representation</h3>
+            </li>
+        </ul>
+        <p><span style="font-size: larger; font-style: italic; color: brown; font-family: monospace;">Task1:</span> How
+            is the grey scale of an image produced?</p>
+    </div>
+    <div>
+        <h2>Colored Image representation</h2>
+        <p>Image could be represented using these 3 spaces. Each pixel has 3 numbers. Image has HxW pixels. Then the image shape is <mark>H x W x 3</mark></p>
+    </div>
+    <script>
+        function showImage() {
+            console.log('Called')
+            const img = document.getElementById('HSV_img');
+            if (img.style.display === 'none')
+                img.style.display = 'block';
+            else
+                img.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html> 
