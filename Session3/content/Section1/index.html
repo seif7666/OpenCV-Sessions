@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Line Detection</title>
+  </head>
+  <body>
+    <div>
+      <h1>Line Detection techniques</h1>
+    </div>
+    <div>
+      <p>
+        As we said, don't apply the following algorithms before you manage to
+        successfully process the data.
+      </p>
+    </div>
+    <div>
+      <h2>Method 1 : Hough Lines</h2>
+      <p>
+        This method operates using the polar coordinates (using rho and theta).
+        There are multiple parameters.
+      </p>
+      <p>
+        The following parameters must be tuned to obtain required performance:
+      </p>
+      <ul>
+        <li>Set resolution for rho and theta.</li>
+        <li>
+          Set a threshold for which each line must be detected more than it to
+          be detected as line.
+        </li>
+        <li><b>Optional: </b> Set angle intervals</li>
+      </ul>
+      <p>
+        The return of the function is a list of points in polar coordinates.
+      </p>
+    </div>
+    <div>
+        <h2>Method 2 : Hough Lines Transform</h2>
+        <p>Relative to first method, we can see it is slower. But it can produce more optimistic results than the first method since it : </p>
+        <ul>
+            <li>Cancels noise better.</li>
+            <li>Enables you to specify the length of line and distance between each point.</li>
+        </ul>
+    </div>
+    <div>
+        <h2>Method 3: Fast Line Detector</h2>
+        <p>You can check this <a href="https://livezingy.com/fastlinedetectors-opencv-contrib/" target="_blank">link</a> for further information </p>
+    </div>
+  </body>
+</html>
