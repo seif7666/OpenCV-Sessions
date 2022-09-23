@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circles</title>
+  </head>
+  <body>
+    <h1>Circle Detection</h1>
+    <p>
+      Circle detection might be a hard step, since it needs delicate processing.
+    </p>
+    <p>
+      <strong>Hough Circles</strong> method is used for detecting circles but
+      few parameters should be adjusted:
+    </p>
+    <ul class="circles-list">
+      <li>
+        <div>
+          <h5>Method</h5>
+          <p>
+            You can choose between several methods for circle detection which
+            are :
+          </p>
+          <ol>
+            <li>cv2.HOUGH_GRADIENT</li>
+            <li>
+              cv2.HOUGH_GRADIENT_ALT : This is seen to get better results.
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>dp: (Inverse Ratio Resolution), reccomended:1.5</li>
+      <li>
+        param1: The value of highest threshold for Canny edge detection, the
+        lower is calculated as half this value. Choose high values that may
+        reach 300 or more.
+      </li>
+      <li>param2: The Accumulator threshold. Same as in hough lines</li>
+      <li>Min Radius</li>
+      <li>
+        <div><h5>Max radius</h5>
+        <p><strong>Note:</strong> putting values <=0 means setting larger radius to be size of image, but if method is HOUGH_GRADIENT, then no radii are detected, only centers</p>
+        </div>
+      </li>
+    </ul>
+  </body>
+</html>
