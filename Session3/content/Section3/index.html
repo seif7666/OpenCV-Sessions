@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contours</title>
+  </head>
+  <body>
+    <div>
+      <h1>Image Contours</h1>
+      <p>
+        Contours are simply represented as the boundaries of an object in an
+        image. To find these contours, the image should be processed and canny
+        edge detector is applied on it.
+      </p>
+    </div>
+    <div>
+      <h2>Finding Contours</h2>
+      <p>
+        <b>cv2.findContours</b> is a very important function. By the name it is
+        used to detect all contours in an image. The function takes the
+        following parameters:
+      </p>
+      <ol>
+        <li>Image</li>
+        <li>
+          <div>
+            <span>Contour Retrieval Mode and they are:</span>
+            <ul>
+              <li>RETR_EXTERNAL: Retrieves Extreme Outer contours</li>
+              <li>RETR_LIST: Retrieves all contours without specifying any relationship</li>
+                <li>RETR_CCOMP:Split the contour to outer contours and inner.</li>
+                <li>RETR_TREE:Put the contour as a tree hierarchy.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
